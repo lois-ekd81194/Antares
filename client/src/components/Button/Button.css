@@ -1,0 +1,227 @@
+/* Base Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: inherit;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Button Sizes */
+.btn--small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 20px;
+}
+
+.btn--medium {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 25px;
+}
+
+.btn--large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+}
+
+/* Primary Variant (CTA Button Style) */
+.btn--primary {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  color: white;
+  box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);
+}
+
+.btn--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(45, 55, 72, 0.4);
+  background: linear-gradient(135deg, #1a202c, #2d3748);
+}
+
+.btn--primary:active {
+  transform: translateY(-1px);
+}
+
+/* Secondary Variant (Demo Link Style) */
+.btn--secondary {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  color: white;
+  box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);
+  min-width: 150px;
+}
+
+.btn--secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(45, 55, 72, 0.4);
+}
+
+/* Outline Variant (GitHub Link Style) */
+.btn--outline {
+  background: transparent;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+  min-width: 150px;
+}
+
+.btn--outline:hover {
+  background: #4a5568;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Ghost Variant (Navigation Style) */
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--ghost::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn--ghost:hover::before {
+  left: 100%;
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn--ghost::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2d3748, #1a202c);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.btn--ghost:hover::after {
+  width: 80%;
+}
+
+.btn--ghost.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btn--ghost.active::after {
+  width: 80%;
+}
+
+/* Back to Top Variant */
+.btn--back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  transform: scale(1);
+  animation: fadeInUp 0.3s ease-out;
+  padding: 0;
+}
+
+.btn--back-to-top:hover {
+  background: white;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .btn--large {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .btn--back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn--medium {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .btn--large {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.95rem;
+  }
+  
+  .btn--back-to-top {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+}
+
+/* Animation for back-to-top */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+} 

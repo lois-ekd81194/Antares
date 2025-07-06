@@ -1,0 +1,227 @@
+/* Base Card Styles */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Blur Effect */
+.card--blur {
+  backdrop-filter: blur(20px);
+}
+
+/* Hover Effect */
+.card--hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Sizes */
+.card--small {
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 300px;
+}
+
+.card--medium {
+  padding: 1.5rem;
+  border-radius: 16px;
+  max-width: 500px;
+}
+
+.card--large {
+  padding: 2rem;
+  border-radius: 24px;
+  max-width: 1000px;
+}
+
+/* Layout Variants */
+.card--vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.card--horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.card--split {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* Card Variants */
+
+/* Default Variant */
+.card--default {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline Variant (matches current timeline cards) */
+.card--timeline {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  width: 100%;
+  max-width: 900px;
+  max-height: 70vh;
+  touch-action: none;
+  z-index: 300;
+}
+
+.card--timeline.card--hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+}
+
+/* Feature Variant (for highlighting features) */
+.card--feature {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.95));
+  border: 2px solid rgba(45, 55, 72, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card--feature.card--hover:hover {
+  border-color: rgba(45, 55, 72, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Info Variant (for informational content) */
+.card--info {
+  background: rgba(255, 255, 255, 0.98);
+  border-left: 4px solid #2d3748;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card--info.card--hover:hover {
+  border-left-color: #1a202c;
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Content Areas */
+.card__header {
+  margin-bottom: 1rem;
+}
+
+.card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.card__subtitle {
+  font-size: 1rem;
+  color: #4a5568;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.card__description {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.card__content {
+  flex: 1;
+}
+
+.card__footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card__actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Split Layout Specific */
+.card--split .card__left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card--split .card__right {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-width: 300px;
+  gap: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card--large {
+    padding: 1.5rem;
+    max-height: 75vh;
+    max-width: 90vw;
+  }
+  
+  .card--split {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .card--split .card__right {
+    min-width: auto;
+    gap: 1rem;
+  }
+  
+  .card--horizontal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+  
+  .card--timeline {
+    padding: 1rem;
+    max-height: 80vh;
+    max-width: 95vw;
+  }
+  
+  .card--split .card__right {
+    gap: 0.8rem;
+  }
+  
+  .card__title {
+    font-size: 1.3rem;
+  }
+  
+  .card__description {
+    font-size: 0.9rem;
+  }
+} 
